@@ -10,7 +10,7 @@ const scene = new THREE.Scene();
 //create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-//Keep track of the mouse position, so we can make the eye move
+//Keep track of the mouse position, so we can make the phone move
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 
@@ -21,7 +21,7 @@ let object;
 let controls;
 
 //Set which object to render
-let objToRender = 'eye';
+let objToRender = 'phone';
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
@@ -73,8 +73,8 @@ function animate() {
   requestAnimationFrame(animate);
   //Here we could add some code to update the scene, adding some automatic movement
 
-  //Make the eye move
-  if (object && objToRender === "eye") {
+  //Make the phone move
+  if (object && objToRender === "phone") {
     //I've played with the constants here until it looked good 
     object.rotation.y = -3 + mouseX / window.innerWidth * 3;
     object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight;
@@ -89,7 +89,7 @@ window.addEventListener("resize", function () {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-//add mouse position listener, so we can make the eye move
+//add mouse position listener, so we can make the phone move
 document.onmousemove = (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
